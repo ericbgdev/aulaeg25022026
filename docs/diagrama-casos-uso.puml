@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+actor "Cliente" as cliente
+actor "Administrador" as admin
+
+rectangle "Sistema de E-commerce" {
+  usecase "Realizar Pedido" as UC1
+  usecase "Cancelar Pedido" as UC2
+  usecase "Avaliar Produto" as UC3
+  usecase "Consultar Estoque" as UC4
+  usecase "Acompanhar Pedido" as UC5
+  usecase "Gerenciar Produtos" as UC6
+  usecase "Gerenciar Pedidos" as UC7
+}
+
+cliente --> UC1
+cliente --> UC2
+cliente --> UC3
+cliente --> UC5
+
+admin --> UC6
+admin --> UC7
+admin --> UC4
+
+UC1 .> UC4 : <<include>>
+UC2 .> UC4 : <<include>>
+@enduml
